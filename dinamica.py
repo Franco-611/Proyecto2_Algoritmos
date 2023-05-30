@@ -1,5 +1,6 @@
 from time import perf_counter
 import matplotlib.pyplot as plt
+from tareas import *
 
 # Encuentre el número máximo de trabajos no conflictivos que se pueden realizar
 # por una sola persona
@@ -27,23 +28,18 @@ def findNonConflictingJobs(jobs):
     for pair in L:
         if len(max) < len(pair):
             max = pair
- 
-    # imprime el máximo de trabajos no conflictivos
-    print("Se seleccionaron las siguientes actividades :")
-    print(max)
+    
+    return max
+    # # imprime el máximo de trabajos no conflictivos
+    # print("Se seleccionaron las siguientes actividades :")
+    # print(max)
  
  
  
  
     
-
-actividades = [ [[5, 9], [1, 2], [3, 4], [0, 6], [5, 7], [8, 9]], 
-	       		[[5, 9], [1, 2], [3, 4], [0, 6], [5, 7], [8, 9], [2, 4], [1, 3]],
-				[[3, 7], [1, 5], [2, 4], [0, 6], [4, 8], [6, 9], [2, 3], [4, 6], [7, 9]],
-				[[2, 6], [0, 3], [4, 7], [1, 5], [3, 8], [5, 9], [7, 9], [1, 4], [6, 8], [3, 5]],
-				[[0, 4], [3, 6], [2, 5], [1, 3], [4, 7], [6, 8], [5, 9], [2, 6], [3, 4], [7, 9], [0, 2]],
-				[[1, 6], [2, 4], [5, 8], [3, 5], [0, 7], [4, 9], [2, 3], [6, 9], [1, 3], [4, 6], [7, 8], [6, 8]]]
-
+tareas = Tareas()
+actividades = tareas.task_lists
 tamaños = []
 tiempos = []
 

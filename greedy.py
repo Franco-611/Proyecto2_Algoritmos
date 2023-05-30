@@ -1,6 +1,6 @@
-from time import *
 from time import perf_counter
 import matplotlib.pyplot as plt
+from tareas import *
 
 def MaxActivities(arr, n):
 	selected = []
@@ -22,13 +22,8 @@ def MaxActivities(arr, n):
 			i = j
 	return selected
 
-actividades = [ [[5, 9], [1, 2], [3, 4], [0, 6], [5, 7], [8, 9]], 
-	       		[[5, 9], [1, 2], [3, 4], [0, 6], [5, 7], [8, 9], [2, 4], [1, 3]],
-				[[3, 7], [1, 5], [2, 4], [0, 6], [4, 8], [6, 9], [2, 3], [4, 6], [7, 9]],
-				[[2, 6], [0, 3], [4, 7], [1, 5], [3, 8], [5, 9], [7, 9], [1, 4], [6, 8], [3, 5]],
-				[[0, 4], [3, 6], [2, 5], [1, 3], [4, 7], [6, 8], [5, 9], [2, 6], [3, 4], [7, 9], [0, 2]],
-				[[1, 6], [2, 4], [5, 8], [3, 5], [0, 7], [4, 9], [2, 3], [6, 9], [1, 3], [4, 6], [7, 8], [6, 8]]]
-
+tareas = Tareas()
+actividades = tareas.task_lists
 tamaños = []
 tiempos = []
 
@@ -37,10 +32,6 @@ for actividad in actividades:
     n = len(actividad)
     tamaños.append(n)
     
-    # start_time = time.time()
-    # selected = MaxActivities(actividad, len(actividad))
-    # end_time = time.time()
-    # execution_time = end_time - start_time
     start_time = perf_counter()
     selected = MaxActivities(actividad, len(actividad))
     end_time = perf_counter()
@@ -48,12 +39,12 @@ for actividad in actividades:
     tiempos.append(execution_time)
 
 
-    print("Se seleccionaron las siguientes actividades :")
-    print(selected[0], end = "")
-    for i in range (1, len(selected)):
-        print(",", end = " ")
-        print(selected[i], end = "")
-    print("\n")
+    # print("Se seleccionaron las siguientes actividades :")
+    # print(selected[0], end = "")
+    # for i in range (1, len(selected)):
+    #     print(",", end = " ")
+    #     print(selected[i], end = "")
+    # print("\n")
     
 
 plt.plot(tamaños, tiempos)
